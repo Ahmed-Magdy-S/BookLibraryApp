@@ -1,0 +1,27 @@
+[
+  {
+    "Id": "5CB523F7-5F94-478A-9813-2B44D02143FE",
+    "Title": "ASP.Net Core in Action",
+    "Quantity": 3,
+    "LibraryId": "A73EA5CE-0132-4FC5-B968-B2B51D419231"
+  },
+  {
+    "Id": "0E87FED4-3E02-430F-BF15-1A38286DF4C4",
+    "Title": "Pro Asp.Net Core",
+    "Quantity": 5,
+    "LibraryId": "A73EA5CE-0132-4FC5-B968-B2B51D419231"
+  },
+  {
+    "Id": "D8B65E4C-D728-4CE8-BA72-4BDF7025FA96",
+    "Title": "Functional Programming in .Net",
+    "Quantity": 7,
+    "LibraryId": "A73EA5CE-0132-4FC5-B968-B2B51D419231"
+  },
+  {
+    "Id": "5AD1C46B-FF2E-44B6-893F-946A15F72FC2",
+    "Title": "Spring Framework",
+    "Quantity": 2,
+    "LibraryId": "A73EA5CE-0132-4FC5-B968-B2B51D419231"
+  }
+
+]

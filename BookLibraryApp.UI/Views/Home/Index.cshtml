@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Library Book | Home";
+    @model IList<Library>
+}
+<div class="container fluid">
+    <form asp-controller="Books" method="get" class="form-floating">
+        <select name="libraryId" class="form-select library-select">
+            @{
+                foreach (var lib in Model)
+                {
+                    <option value="@lib.Id">@lib.Name</option>
+
+                }
+            }
+        </select>
+        <label>Select Library:</label>
+
+        <br />
+        <div class="d-flex justify-content-center m-auto">
+            <button type="submit" class="find-books btn btn-primary">Find Books</button>
+        </div>
+    </form>
+</div>

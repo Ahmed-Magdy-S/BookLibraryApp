@@ -1,0 +1,26 @@
+﻿<nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+
+        <a class="navbar-brand" href="/">Library Book</a>
+        <ul class="nav">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li class="me-2 nav-item">
+                    @User.Identity?.Name
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="auth" asp-action="Logout">Logout</a>
+                </li>
+            }
+            else
+            {
+                <li class="me-2 nav-item">
+                    <a asp-action="register" asp-controller="auth"  class="btn btn-outline-primary">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a asp-action="login" asp-controller="auth" class="btn btn-primary">Login</a>
+                </li>
+            }
+        </ul>
+    </div>
+</nav>

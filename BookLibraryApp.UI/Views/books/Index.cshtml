@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "Books";
+    @model IEnumerable<Book>
+
+}
+
+<div class="table-responsive container-fluid">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Quantity</th>
+                <th class="text-center" colspan="3">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in Model)
+            {
+                <tr>
+                    <td>@book.Title</td>
+                    <td>@book.Quantity</td>
+                    <td class="text-center">
+                        <button data-id=@book.Id class="btn btn-primary borrows" asp-controller="Books" asp-action="Borrow">Borrow</button>
+                    </td>
+                    <td class="text-center">
+                        <button data-id=@book.Id class="btn btn-secondary returns">Return</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<script>
+    document.querySelectorAll(".borrows").forEach(borrowButton => {
+
+        borrowButton.addEventListener("click", (e) => {
+         
+            const url = '/../api/borrower/BorrowBook';
+            const data = { bookId: borrowButton.dataset.id };
+            const options = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            };
+            fetch(url, options)
+                .then(response => response.text())
+                .then(data => alert(data))
+                .catch(error => {
+                    console.error('Error:', error)
+                    alert("error")
+                });
+        });
+    })
+
+    document.querySelectorAll(".returns").forEach(returnButton => {
+
+        returnButton.addEventListener("click", (e) => {
+
+            const url = '/../api/borrower/ReturnBook';
+            const data = { bookId: returnButton.dataset.id };
+            const options = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            };
+            fetch(url, options)
+                .then(response => response.text())
+                .then(data => alert(data))
+                .catch(error => {
+                    console.error('Error:', error)
+                    alert("error")
+                });
+        });
+    })
+
+</script>
+
+
